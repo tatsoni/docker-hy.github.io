@@ -12,7 +12,6 @@ COPY . .
 
 RUN chown -R jekyll .
 
-
 RUN jekyll build
 
 FROM node:alpine
@@ -20,6 +19,8 @@ FROM node:alpine
 ENV PORT 80
 
 RUN npm install -g serve
+
+RUN apt-get update && apt-get install -y curl
 
 COPY --from=build-stage /usr/src/app/_site/ /usr/src/html
 
