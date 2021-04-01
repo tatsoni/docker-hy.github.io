@@ -12,6 +12,7 @@ COPY . .
 
 RUN chown -R jekyll .
 
+
 RUN jekyll build
 
 FROM node:alpine
